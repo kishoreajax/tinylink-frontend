@@ -1,0 +1,27 @@
+/* Base reset & smoothing */
+:root {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default Vite dark/light theme */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f3f6fa;
+  color: #222;
+}
+
+/* Remove default logo animations & styles */
+.logo,
+.read-the-docs {
+  display: none;
+}
+
+/* Global button reset so component styles take priority */
+button {
+  font-family: inherit;
+}

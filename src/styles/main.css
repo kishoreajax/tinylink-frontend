@@ -1,0 +1,149 @@
+/* =========================
+   Global Layout
+========================= */
+body {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  margin: 0;
+  background: #f3f6fa;
+  color: #222;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   Card
+========================= */
+.card {
+  background: white;
+  padding: 22px;
+  margin-top: 22px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   Headings
+========================= */
+h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+h2 {
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+/* =========================
+   Form
+========================= */
+.form label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.form input {
+  width: 100%;
+  padding: 9px;
+  margin-top: 4px;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+  font-size: 15px;
+}
+.form input:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+/* Submit button */
+.form button {
+  width: 160px;
+  padding: 11px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: background 0.25s;
+}
+.form button:hover {
+  background: #005dcc;
+}
+.form button:disabled {
+  background: #88b8ff;
+  cursor: default;
+}
+
+/* Success / error message */
+.message {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #008000;
+}
+
+/* =========================
+   Table
+========================= */
+.links-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.links-table th,
+.links-table td {
+  padding: 11px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.links-table th {
+  background: #f0f3f7;
+  text-align: left;
+  font-weight: 600;
+}
+
+.links-table tr:hover {
+  background: #fafcff;
+}
+
+/* For long URLs */
+.url-cell {
+  word-break: break-all;
+}
+
+/* Copy Button */
+.links-table button {
+  padding: 6px 12px;
+  border: none;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.links-table button:hover {
+  background: #005dcc;
+}
+
+/* =========================
+   Back Link
+========================= */
+.back-link {
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
