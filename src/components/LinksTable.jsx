@@ -2,6 +2,23 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { deleteLink } from "../api/linksApi";
 
+// 🕒 Helper — Format timestamp into readable IST
+function formatIST(iso) {
+  if (!iso) return "—";
+  const date = new Date(iso);
+  return (
+    date.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }) + " IST"
+  );
+}
+
 export default function LinksTable({ links, loading, onDelete }) {
   const [copiedCode, setCopiedCode] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState("");
@@ -46,9 +63,13 @@ export default function LinksTable({ links, loading, onDelete }) {
                 <td>
                   <Link to={`/code/${link.code}`}>{link.code}</Link>
                 </td>
+
                 <td className="url-cell">{link.url}</td>
+
                 <td>{link.clicks}</td>
-                <td>{link.last_clicked || "—"}</td>
+
+                {/* ⭐ IST timestamp instead of raw ISO timestamp */}
+                <td>{formatIST(link.last_clicked)}</td>
 
                 <td>
                   <button onClick={() => copyToClipboard(shortUrl, link.code)}>

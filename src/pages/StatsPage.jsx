@@ -2,6 +2,23 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getLinkByCode } from "../api/linksApi";
 
+// 🕒 Helper – Convert ISO timestamp into readable IST format
+function formatIST(iso) {
+  if (!iso) return "—";
+  const date = new Date(iso);
+  return (
+    date.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }) + " IST"
+  );
+}
+
 export default function StatsPage() {
   const { code } = useParams();
   const [link, setLink] = useState(null);
@@ -37,8 +54,10 @@ export default function StatsPage() {
       <p><strong>Code:</strong> {link.code}</p>
       <p><strong>Destination URL:</strong> {link.url}</p>
       <p><strong>Total Clicks:</strong> {link.clicks}</p>
-      <p><strong>Created On:</strong> {link.created_at}</p>
-      <p><strong>Last Clicked:</strong> {link.last_clicked || "Not clicked yet"}</p>
+
+      {/* ⭐ Display timestamps in user-friendly IST format */}
+      <p><strong>Created On:</strong> {formatIST(link.created_at)}</p>
+      <p><strong>Last Clicked:</strong> {formatIST(link.last_clicked)}</p>
 
       <div style={{ marginTop: "20px" }}>
         <Link to="/" className="back-link">← Back to Dashboard</Link>
