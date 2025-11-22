@@ -1,16 +1,52 @@
-# React + Vite
+## TinyLink — URL Shortener with Click Analytics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TinyLink is a full-stack URL shortening system that allows users to create short URLs with optional custom aliases, redirect instantly, and track analytics including total clicks and last clicked timestamp.  
+The platform consists of a React + Vite frontend, an Express backend, and a PostgreSQL database hosted on Neon.
 
-Currently, two official plugins are available:
+### Live Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend: https://tinylink-frontend-six.vercel.app  
+Backend API: https://tinylink-backend-qng1.onrender.com
 
-## React Compiler
+### Features
+- Create short URLs
+- Custom code support
+- Instant redirection
+- Click analytics
+- Stats page
+- Copy-to-clipboard
+- Delete link
+- `/healthz` health endpoint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Tech Stack
+Frontend: React, Vite  
+Backend: Node.js, Express  
+Database: Neon PostgreSQL  
+Hosting: Vercel + Render
 
-## Expanding the ESLint configuration
+### Architecture
+Vercel (React) → Render (Express API) → Neon (Postgres database)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### API Endpoints
+GET /api/links — list all links  
+POST /api/links — create link  
+GET /api/links/:code — link statistics  
+DELETE /api/links/:code — delete link  
+GET /healthz — service health
+
+### Run Locally
+Backend:
+1. npm install
+2. Add .env:
+   DATABASE_URL, BASE_URL, PORT
+3. npm start
+
+Frontend:
+1. npm install
+2. npm run dev
+
+### License
+MIT License
+
+### Author
+Kishore A D
