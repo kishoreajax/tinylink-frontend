@@ -30,7 +30,7 @@ export default function CreateLinkForm({ onCreated }) {
     }
 
     // Auto-hide message after a few seconds
-    setTimeout(() => setMessage(""), 3000);
+    setTimeout(() => setMessage(""), 5000);
   }
 
   return (
